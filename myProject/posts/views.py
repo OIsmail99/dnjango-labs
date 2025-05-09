@@ -32,3 +32,14 @@ posts = [
 
 def index(request):
     return HttpResponse('Hello, world! This is the index view of the posts app.')
+
+def post(request, post_id):
+    post = {}
+    for p in posts:
+        if p['id'] == post_id:
+            post = p
+            break
+    if post:
+        return HttpResponse(f"Post ID: {post['id']}, Title: {post['title']}, Content: {post['content']}")
+    else:
+        return HttpResponse("Post not found.")

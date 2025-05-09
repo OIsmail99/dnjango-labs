@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
+    path('<int:post_id>/', views.post),
     # path('posts/', include('posts.urls')),
 ]
