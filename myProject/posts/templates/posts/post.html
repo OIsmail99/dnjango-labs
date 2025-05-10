@@ -10,11 +10,24 @@
   <body>
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
+    <p>
+      <a href="{% url 'author' post.author.id %}"
+        >Author: {{ post.author.name }}</a
+      >
+    </p>
+    <h3>Comments</h3>
+    {% for comment in post.comments.all %}
+    <p>{{ comment.content }}</p>
+    <p>By: {{ comment.author.name }}</p>
+    {% empty %}
+    <p>No comments yet.</p>
+    {% endfor %} {% comment %}
     <img
-      src="{{ post.image }}"
+      src="{% static post.image %}"
       alt="{{ post.title }}"
       style="max-width: 300px"
     />
+    {% endcomment %}
     <div>
       <a href="{% url 'index' %}" class="back-link">Back to all posts</a>
     </div>
