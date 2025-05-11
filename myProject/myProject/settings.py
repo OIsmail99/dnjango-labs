@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'posts',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,7 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/posts/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
